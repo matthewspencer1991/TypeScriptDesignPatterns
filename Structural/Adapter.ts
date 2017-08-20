@@ -28,7 +28,7 @@ module AdapterModule
      */
     interface ISprite 
     {
-        draw(position: IVector2);
+        draw(position: IVector2): void;
     }
 
     /**
@@ -45,7 +45,7 @@ module AdapterModule
          * @summary Our new interface method that calls our legacy method.
          * @param {IVector2} position - The position to draw the sprite at
          */
-        draw(position: IVector2) 
+        draw(position: IVector2): void
         {
             this._adaptee.draw(position.x, position.y);
         }
