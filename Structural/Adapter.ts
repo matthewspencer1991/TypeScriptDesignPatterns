@@ -10,7 +10,7 @@ module AdapterModule
     {
         public draw(x: number, y: number): void 
         {
-            // Draw logic.
+            console.log(`Player drawn at x: ${x}, y: ${y}`);
         }
     }
 
@@ -24,7 +24,7 @@ module AdapterModule
     }
 
     /**
-     * @summary Our new interface.
+     * @summary Our new client interface.
      */
     interface ISprite 
     {
@@ -43,11 +43,16 @@ module AdapterModule
 
         /**
          * @summary Our new interface method that calls our legacy method.
-         * @param position - The position to draw the sprite at
+         * @param {IVector2} position - The position to draw the sprite at
          */
         draw(position: IVector2) 
         {
             this._adaptee.draw(position.x, position.y);
         }
     }
+
+    // Test adapter
+    const player = new Player();
+    const position: IVector2 = { x: 10, y: 20 };
+    player.draw(position);
 }
